@@ -5,12 +5,8 @@ package com.example.surge.stackoverflowsearch.data.model;
  */
 
 public class Question {
-    Owner owner;
-    int viewCount;
-    int answerCount;
-    long lastActivityDate;
-    long creationDate;
-    long lastEditDate;
-    String link;
-    String title;
+    public Owner owner;
+    public int viewCount;
+    public int answerCount;
+    public String title;
 }

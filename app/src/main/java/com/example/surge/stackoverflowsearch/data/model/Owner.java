@@ -5,7 +5,6 @@ package com.example.surge.stackoverflowsearch.data.model;
  */
 
 public class Owner {
-    String profileImage;
-    String displayName;
-    String link;
+    public String profileImage;
+    public String displayName;
 }

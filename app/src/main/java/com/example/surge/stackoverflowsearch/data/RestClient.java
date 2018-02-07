@@ -1,6 +1,8 @@
 package com.example.surge.stackoverflowsearch.data;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.concurrent.TimeUnit;
@@ -21,7 +23,7 @@ public class RestClient {
     public static final String BASE_URL = "https://api.stackexchange.com/2.2/";
 
     public Retrofit getRetrofit() {
-        return createRestAdapter(getGsonConverter(new Gson()), getOkClient());
+        return createRestAdapter(getGsonConverter(), getOkClient());
     }
 
     private Retrofit createRestAdapter(GsonConverterFactory gsonConverter, OkHttpClient okClient) {
@@ -33,7 +35,11 @@ public class RestClient {
                 .build();
     }
 
-    private GsonConverterFactory getGsonConverter(Gson gson) {
+    private GsonConverterFactory getGsonConverter() {
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                .create();
+
         return GsonConverterFactory.create(gson);
     }
 
