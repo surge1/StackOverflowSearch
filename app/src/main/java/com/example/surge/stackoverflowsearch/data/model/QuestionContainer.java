@@ -7,5 +7,5 @@ import java.util.List;
  */
 
 public class QuestionContainer {
-    List<Question> items;
+    public List<Question> items;
 }

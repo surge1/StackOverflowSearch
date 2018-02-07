@@ -6,6 +6,7 @@ import com.example.surge.stackoverflowsearch.app.App;
 import com.example.surge.stackoverflowsearch.app.module.AppModule;
 import com.example.surge.stackoverflowsearch.app.module.NetworkModule;
 import com.example.surge.stackoverflowsearch.data.RestClient;
+import com.example.surge.stackoverflowsearch.ui.main.MainViewModel;
 import com.google.gson.Gson;
 
 import javax.inject.Singleton;
@@ -25,6 +26,8 @@ import dagger.Component;
 )
 public interface AppComponent {
     void inject(App app);
+
+    void inject(MainViewModel mainViewModel);
 
     App getApp();
 
