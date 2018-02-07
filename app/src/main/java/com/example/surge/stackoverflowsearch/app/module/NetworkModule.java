@@ -1,6 +1,7 @@
 package com.example.surge.stackoverflowsearch.app.module;
 
 import com.example.surge.stackoverflowsearch.data.RestClient;
+import com.example.surge.stackoverflowsearch.data.manager.StackoverflowManager;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -28,5 +29,11 @@ public class NetworkModule {
     @Singleton
     public RestClient provideRestClient() {
         return new RestClient();
+    }
+
+    @Provides
+    @Singleton
+    public StackoverflowManager providesStackoverflowManager(RestClient restClient) {
+        return new StackoverflowManager(restClient.getRetrofit());
     }
 }
